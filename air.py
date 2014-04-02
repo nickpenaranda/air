@@ -45,6 +45,9 @@ def main(argv):
     except getopt.GetoptError:
         showHelp()
 
+    if len(args) != 1:
+        showHelp()
+
     # Defaults
     quietMode = False
     rootDir = os.path.curdir
@@ -66,9 +69,6 @@ def main(argv):
                 filename = filename + DEFAULT_EXT
         if opt in ('-q','--quiet'):
             quietMode = True
-
-    if len(args) != 1:
-        showHelp()
 
 
     if not os.path.isfile(inputFile):
