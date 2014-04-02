@@ -15,6 +15,17 @@ See:
 
     ./air.py --help
 
+Example:
+
+    # Makes resized copies of my_icon.png in ./my_app/res/drawable-xyz/ic_launcher.png
+
+    $ ./air.py -o my_app -n ic_launcher my_icon.png
+    /home/nick/my_app/res/drawable-xhdpi/ic_launcher.png
+    /home/nick/my_app/res/drawable-hdpi/ic_launcher.png
+    /home/nick/my_app/res/drawable-mdpi/ic_launcher.png
+    /home/nick/my_app/res/drawable-ldpi/ic_launcher.png
+
+
 License
 -------
 
