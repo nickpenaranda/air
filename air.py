@@ -16,7 +16,9 @@ REF_DPI = 320.0
 def showHelp():
     print """Android Image Resizer: Automatically generate resized images
 
-Usage: air.py [-h] [-o <output_root>] [-n <filename>[.<ext>]] <inputfile>
+Usage: air.py [-hq] [-o <output_root>] [-n <filename>[.<ext>]]
+              [-d <dpi>|--hsize=<x>|--vsize=<y>] <inputfile>
+
 
 -h,--help           Show this information
 
@@ -32,9 +34,9 @@ Usage: air.py [-h] [-o <output_root>] [-n <filename>[.<ext>]] <inputfile>
 
 -q,--quiet          Suppress output
 
---hsize=<h>,        Size, in inches, of the source image.  Default assumes
---vsize=<v>         source image is 320dpi. NOTE: dpi, hsize and vsize are
-                    mutually exclusive.
+--hsize=<h>,        Width or height, in inches, of the source image.  Default
+--vsize=<v>         assumes source image is 320dpi. NOTE: dpi, hsize and vsize
+                    are mutually exclusive.
 
 inputfile           xhdpi image file to resize and copy to
                     appropriate locations.
