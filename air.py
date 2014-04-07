@@ -11,7 +11,8 @@ SIZES = (
 )
 
 DEFAULT_EXT = '.png'
-REF_DPI = 320.0
+REF_SCALE = 2 # N pixels = 1 dip
+REF_DPI = 160 * REF_SCALE
 
 def showHelp():
     print """Android Image Resizer: Automatically generate resized images
@@ -34,7 +35,7 @@ Usage: air.py [-hq] [-o <output_root>] [-n <filename>[.<ext>]]
 
 -q,--quiet          Suppress output
 
---hsize=<h>,        Width or height, in inches, of the source image.  Default
+--hsize=<h>,        Width or height, in dp, of the source image.  Default
 --vsize=<v>         assumes source image is 320dpi. NOTE: dpi, hsize and vsize
                     are mutually exclusive.
 
@@ -123,11 +124,12 @@ def main(argv):
 
         # Adjust factors if source image width or height is specified
         if sDPI:
-            correction = REF_DPI / sDPI
+            correction = REF_DPI / float(sDPI)
+            print correction
         elif sWidth:
-            correction = sWidth * REF_DPI / img.width
+            correction = sWidth * REF_SCALE / img.width
         elif sHeight:
-            correction = sHeight * REF_DPI / img.height
+            correction = sHeight * REF_SCALE / img.height
 
     # Build output directory, if needed
     resDir = '%s/res/' % (rootDir,)
