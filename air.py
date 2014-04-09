@@ -118,10 +118,6 @@ def main(argv):
 
     # Check image properties
     with Image(filename=inputFile) as img:
-        if not (img.width / 8.0).is_integer() or not (img.height / 8.0).is_integer():
-            sys.stderr.write('ERROR: One or both dimensions are NOT multiples of 8\n')
-            sys.exit(-1)
-
         # Adjust factors if source image width or height is specified
         if sDPI:
             correction = REF_DPI / float(sDPI)
